@@ -1,10 +1,16 @@
 <?php
 class Usuario_Model extends CI_Model
 {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->database();
+    }
+
     public function fetch_all()
     {
-        $this->db->order_by('id', 'ASC');
-        return $this->db->get('usuarios');
+        $query = $this->db->get('usuarios');
+        return $query->result();
     }
 
     public function get($user_id)
