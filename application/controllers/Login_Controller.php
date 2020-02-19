@@ -11,8 +11,8 @@ class Login_Controller extends CI_Controller
 
     public function index()
     {
-        $this->form_validation->set_rules('matricula', 'Matricula', 'trim|required|min_length[5]|max_length[12]');
-        $this->form_validation->set_rules('senha', 'Senha', 'trim|required|min_length[4]');
+        $this->form_validation->set_rules('matricula', 'Matricula', 'trim|required|min_length[3]|max_length[100]');
+        $this->form_validation->set_rules('senha', 'Senha', 'trim|required');
         
         if ($this->form_validation->run() == false) {
             $this->load->view('login_view');
@@ -21,14 +21,11 @@ class Login_Controller extends CI_Controller
             $senha = $this->input->post("senha");
             $user = $this->usuario_model->get_by_matricula($matricula);
 
-            if (!$user) {
+            if (!$user or !password_verify($senha, $user["senha"])) {
+                $this->session->set_flashdata('authError', 'Matrícula ou senha inválidas!');
                 redirect(uri_string());
             }
         
-            if (!password_verify($senha, $user["senha"])) {
-                redirect(uri_string());
-            }
-
             $data_user = array(
                 'id' => $user["id"],
                 'matricula' => $user["matricula"],
