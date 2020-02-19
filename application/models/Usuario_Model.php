@@ -24,9 +24,8 @@ class Usuario_Model extends CI_Model
     {
         $this->db->where('matricula', $matricula);
         $query = $this->db->get('usuarios');
-        return $query->result_array();
+        return $query->result_array()[0];
     }
-
 
     public function insert($data)
     {
