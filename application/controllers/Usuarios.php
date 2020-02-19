@@ -7,7 +7,10 @@ class Usuarios extends CI_Controller
     {
         parent::__construct();
         $this->load->model('usuario_model');
-
+        
+        if (!$this->session->userdata('id')) {
+            redirect('login');
+        }
     }
 
     public function index()
@@ -15,5 +18,4 @@ class Usuarios extends CI_Controller
         $data["usuarios"] = $this->usuario_model->fetch_all();
         $this->load->view('usuarios_view', $data);
     }
-
 }
