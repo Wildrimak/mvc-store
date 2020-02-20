@@ -54,3 +54,9 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['login'] = 'login_controller';
 $route['logout'] = 'login_controller/logout';
+$route['usuarios'] = 'usuario_controller';
+$route['usuarios/adicionar'] = 'usuario_controller/adicionar';
+$route['usuarios/editar/(:any)'] = 'usuario_controller/editar/$1';
+$route['usuarios/salvar'] = "usuario_controller/salvar_usuario";
+$route['usuarios/deletar/(:any)'] = 'usuario_controller/deletar/$1';
+
