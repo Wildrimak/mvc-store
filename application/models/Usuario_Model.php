@@ -47,10 +47,5 @@ class Usuario_Model extends CI_Model
     {
         $this->db->where('id', $user_id);
         $this->db->delete('usuarios');
-        if ($this->db->affected_rows() > 0) {
-            return true;
-        } else {
-            return false;
-        }
     }
 }
