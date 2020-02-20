@@ -17,7 +17,10 @@ class Usuario_Model extends CI_Model
     {
         $this->db->where('id', $user_id);
         $query = $this->db->get('usuarios');
-        return $query->result_array();
+        if ($query->result_array()) {
+            return $query->result_array()[0];
+        }
+        return null;
     }
 
     public function get_by_matricula($matricula)
