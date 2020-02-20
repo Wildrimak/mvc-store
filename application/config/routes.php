@@ -66,6 +66,11 @@ $route['clientes/editar/(:any)'] = 'cliente_controller/editar/$1';
 $route['clientes/salvar'] = "cliente_controller/salvar_cliente";
 $route['clientes/atualizar/(:any)'] = "cliente_controller/atualizar_cliente/$1";
 $route['clientes/deletar/(:any)'] = 'cliente_controller/deletar/$1';
-$route['produtos'] = '';
+$route['produtos'] = 'produto_controller';
+$route['produtos/adicionar'] = 'produto_controller/adicionar';
+$route['produtos/editar/(:any)'] = 'produto_controller/editar/$1';
+$route['produtos/salvar'] = "produto_controller/salvar_produto";
+$route['produtos/atualizar/(:any)'] = "produto_controller/atualizar_produto/$1";
+$route['produtos/deletar/(:any)'] = 'produto_controller/deletar/$1';
 $route['vendas'] = '';
 
