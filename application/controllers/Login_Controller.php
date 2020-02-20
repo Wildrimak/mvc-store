@@ -15,7 +15,7 @@ class Login_Controller extends CI_Controller
         $this->form_validation->set_rules('senha', 'Senha', 'trim|required');
         
         if ($this->form_validation->run() == false) {
-            $this->load->view('login_view');
+            $this->load->view('login/login_view');
         } else {
             $matricula = $this->input->post("matricula");
             $senha = $this->input->post("senha");
