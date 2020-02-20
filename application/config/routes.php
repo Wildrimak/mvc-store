@@ -72,5 +72,7 @@ $route['produtos/editar/(:any)'] = 'produto_controller/editar/$1';
 $route['produtos/salvar'] = "produto_controller/salvar_produto";
 $route['produtos/atualizar/(:any)'] = "produto_controller/atualizar_produto/$1";
 $route['produtos/deletar/(:any)'] = 'produto_controller/deletar/$1';
-$route['vendas'] = '';
+$route['vendas'] = 'venda_controller';
+$route['vendas/adicionar'] = 'venda_controller/adicionar';
+$route['vendas/salvar'] = "venda_controller/salvar_venda";
 
