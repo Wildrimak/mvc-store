@@ -60,7 +60,12 @@ $route['usuarios/editar/(:any)'] = 'usuario_controller/editar/$1';
 $route['usuarios/salvar'] = "usuario_controller/salvar_usuario";
 $route['usuarios/atualizar/(:any)'] = "usuario_controller/atualizar_usuario/$1";
 $route['usuarios/deletar/(:any)'] = 'usuario_controller/deletar/$1';
-$route['clientes'] = '';
+$route['clientes'] = 'cliente_controller';
+$route['clientes/adicionar'] = 'cliente_controller/adicionar';
+$route['clientes/editar/(:any)'] = 'cliente_controller/editar/$1';
+$route['clientes/salvar'] = "cliente_controller/salvar_cliente";
+$route['clientes/atualizar/(:any)'] = "cliente_controller/atualizar_cliente/$1";
+$route['clientes/deletar/(:any)'] = 'cliente_controller/deletar/$1';
 $route['produtos'] = '';
 $route['vendas'] = '';
 
