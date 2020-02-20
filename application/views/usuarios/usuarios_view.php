@@ -32,7 +32,10 @@
                 }
             ?>
             </table>
-            <?php echo anchor('usuarios/adicionar', 'Adicionar Usuário', 'title="adicionar" id="links"') ?>
+            <?php echo anchor('usuarios/adicionar', 'Cadastrar novo usuário', 'title="adicionar" id="links"') ?>
+            <?php echo anchor('clientes', 'Ver clientes', 'title="clientes" id="links"') ?>
+            <?php echo anchor('produtos', 'Ver produtos', 'title="produtos" id="links"') ?>
+            <?php echo anchor('vendas', 'Realizar Venda', 'title="vendas" id="links"') ?>
         </div>
 
     </body>
