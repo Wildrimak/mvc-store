@@ -58,5 +58,6 @@ $route['usuarios'] = 'usuario_controller';
 $route['usuarios/adicionar'] = 'usuario_controller/adicionar';
 $route['usuarios/editar/(:any)'] = 'usuario_controller/editar/$1';
 $route['usuarios/salvar'] = "usuario_controller/salvar_usuario";
+$route['usuarios/atualizar/(:any)'] = "usuario_controller/atualizar_usuario/$1";
 $route['usuarios/deletar/(:any)'] = 'usuario_controller/deletar/$1';
 
