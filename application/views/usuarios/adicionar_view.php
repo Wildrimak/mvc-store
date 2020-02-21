@@ -6,7 +6,7 @@
     </head>
 
     <body>
-
+        <?php echo anchor('usuarios', 'Retornar', 'title="usuarios" id="links"') ?>
         <?php echo form_open('usuarios/salvar'); ?>
             <div align="center">
 
