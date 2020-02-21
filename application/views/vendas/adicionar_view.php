@@ -9,6 +9,7 @@
 
 <body>
 
+    <?php echo anchor('vendas', 'Retornar', 'title="vendas" id="links"') ?>
     <?php echo form_open('vendas/salvar'); ?>
     <div align="center">
 

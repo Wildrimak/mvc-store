@@ -48,6 +48,17 @@ class Venda_Controller extends CI_Controller
         $session_id = $this->session->userdata('id');
         $usuario_logado = $this->usuario_model->get($session_id)["id"];
 
+        if ($forma_pagamento == 1) {
+            $forma_pagamento = "DINHEIRO";
+        } elseif ($forma_pagamento == 2) {
+            $forma_pagamento = "CARTÃO";
+        } elseif ($forma_pagamento == 3) {
+            $forma_pagamento = "CHEQUE";
+        } else {
+            $forma_pagamento = "BOLETO";
+        }
+        
+
         $data = array(
                 "produtos_id" => $produtos_id,
                 "clientes_id" => $clientes_id,
