@@ -7,6 +7,7 @@
 
     <body>
 
+        <?php echo anchor('usuarios', 'Retornar', 'title="usuarios" id="links"') ?>
         <?php echo form_open('usuarios/atualizar/'.$id.''); ?>
             <div align="center">
 
