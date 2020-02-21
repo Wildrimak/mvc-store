@@ -9,6 +9,7 @@
         <?php echo anchor('usuarios', 'Retornar', 'title="usuarios" id="links"') ?>
         <?php echo form_open('usuarios/salvar'); ?>
             <div align="center">
+                <h2>Cadastre um novo usuário admin para o sistema!</h2>
 
                 <div>
                     <?php if( $this->session->flashdata('authError') )

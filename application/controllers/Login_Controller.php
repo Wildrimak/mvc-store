@@ -7,10 +7,18 @@ class Login_Controller extends CI_Controller
     {
         parent::__construct();
         $this->load->model('usuario_model');
+       
+        if ($this->usuario_model->count_all() < 1) {
+            $this->load->view('usuarios/adicionar_view');
+        }
     }
 
     public function index()
     {
+        if ($this->usuario_model->count_all() < 1) {
+            return;
+        }
+
         $this->form_validation->set_rules('matricula', 'Matricula', 'trim|required|min_length[3]|max_length[100]');
         $this->form_validation->set_rules('senha', 'Senha', 'trim|required');
         

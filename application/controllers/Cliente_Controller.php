@@ -10,6 +10,12 @@ class Cliente_Controller extends CI_Controller
         parent::__construct();
         $this->load->model('cliente_model');
         $this->load->model('usuario_model');
+
+        if ($this->usuario_model->count_all() < 1) {
+            $this->load->view('usuarios/adicionar_view');
+        } elseif (!$this->session->userdata('id')) {
+            redirect('login');
+        }
         
         if (!$this->session->userdata('id')) {
             redirect('login');
@@ -20,6 +26,9 @@ class Cliente_Controller extends CI_Controller
 
     public function index()
     {
+        if ($this->usuario_model->count_all() < 1) {
+            return;
+        }
         $data["clientes"] = $this->clientes;
         $this->load->view('clientes/clientes_view', $data);
     }

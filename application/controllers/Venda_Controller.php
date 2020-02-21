@@ -13,7 +13,9 @@ class Venda_Controller extends CI_Controller
         $this->load->model('produto_model');
         $this->load->model('cliente_model');
         
-        if (!$this->session->userdata('id')) {
+        if ($this->usuario_model->count_all() < 1) {
+            $this->load->view('usuarios/adicionar_view');
+        } elseif (!$this->session->userdata('id')) {
             redirect('login');
         }
 
@@ -22,6 +24,9 @@ class Venda_Controller extends CI_Controller
 
     public function index()
     {
+        if ($this->usuario_model->count_all() < 1) {
+            return;
+        }
         $data["vendas"] = $this->vendas;
         $this->load->view('vendas/vendas_view', $data);
     }

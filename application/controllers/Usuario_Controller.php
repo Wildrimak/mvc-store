@@ -8,9 +8,12 @@ class Usuario_Controller extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+
         $this->load->model('usuario_model');
         
-        if (!$this->session->userdata('id')) {
+        if ($this->usuario_model->count_all() < 1) {
+            $this->load->view('usuarios/adicionar_view');
+        } elseif (!$this->session->userdata('id')) {
             redirect('login');
         }
 
@@ -19,6 +22,9 @@ class Usuario_Controller extends CI_Controller
 
     public function index()
     {
+        if ($this->usuario_model->count_all() < 1) {
+            return;
+        }
         $data["usuarios"] = $this->usuarios;
         $this->load->view('usuarios/usuarios_view', $data);
     }
@@ -37,6 +43,9 @@ class Usuario_Controller extends CI_Controller
         $this->form_validation->set_rules('status', 'Status', 'max_length[1]');
         
         if ($this->form_validation->run() == false) {
+            if ($this->usuario_model->count_all() < 1) {
+                return;
+            }
             $this->load->view('usuarios/adicionar_view');
         } else {
             $nome = $this->input->post("nome");
