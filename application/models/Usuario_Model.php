@@ -13,6 +13,10 @@ class Usuario_Model extends CI_Model
         return $query->result();
     }
 
+    public function count_all(){
+        return $this->db->count_all_results('usuarios');
+    }
+
     public function get($user_id)
     {
         $this->db->where('id', $user_id);
